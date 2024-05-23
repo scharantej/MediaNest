@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Media Search</title>
+<link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+<div class="container">
+<div class="search-container">
+<h1>Media Search</h1>
+<form action="/" method="POST" enctype="multipart/form-data">
+<input type="text" name="query" placeholder="Search for videos or images">
+<input type="file" name="query" accept="image/*">
+<button type="submit">Search</button>
+</form>
+</div>
+<div class="media-container">
+<div class="grid">
+{% for media_item in media_items %}
+<div class="media-item">
+<a href="/media_item/{{ media_item.id }}">
+<img src="/static/media/{{ media_item.id }}.png">
+</a>
+</div>
+{% endfor %}
+</div>
+<div class="load-more">
+<button type="button">Load More</button>
+</div>
+</div>
+</div>
+</body>
+</html>
+

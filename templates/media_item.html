@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Media Item</title>
+<link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+<div class="container">
+<div class="media-item-container">
+<div class="video-container">
+<video controls>
+<source src="/static/media/{{ media_item_id }}.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+<div class="description">
+<h1>{{ media_item.title }}</h1>
+<p>{{ media_item.description }}</p>
+</div>
+<div class="related-media">
+<h2>Related Media</h2>
+<div class="grid">
+{% for related_media_item in related_media_items %}
+<div class="media-item">
+<a href="/media_item/{{ related_media_item.id }}">
+<img src="/static/media/{{ related_media_item.id }}.png">
+</a>
+</div>
+{% endfor %}
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
+
